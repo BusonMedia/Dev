@@ -6,6 +6,7 @@ app()->setLocale(Session::get('locale'))
 @section('title',$article->title)
 
 @section('content')
+
     <br>
     <div class="container">
       <div class="col-md-9 mx-auto">
