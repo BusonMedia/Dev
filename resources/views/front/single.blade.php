@@ -14,6 +14,7 @@ app()->setLocale(Session::get('locale'))
           {!!$article->content!!}
         <br/><br/>
         <span class = "text-danger"> Okunma Sayısı : <b>{{$article->hit}}</b></span>
+
       </div>
       </div>
       @endsection
