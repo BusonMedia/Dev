@@ -52,7 +52,7 @@ return [
     |
     */
 
-    //Ahmeim seni cok seviyorum
+    //siktur orospu
 
     'url' => env('APP_URL', 'http://localhost'),
 
