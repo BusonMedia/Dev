@@ -52,12 +52,12 @@ app()->setLocale(Session::get('locale'))
         <div class="container">
             <div class="section-header">
                 <h2>@lang('content.service_title')</h2>
-                <p>@lang('content.service_desc')</p>
+            <!--    <p>@lang('content.service_desc')</p>-->
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft">
-                        <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                        <div class="icon"><i class="fa fa-code"></i></div>
                         <h4 class="title"><a href="{{asset('homepage/')}}/">@lang('content.tab_1_title')</a></h4>
                         <p class="description">@lang('content.tab_1_content')</p>
                     </div>
@@ -65,7 +65,7 @@ app()->setLocale(Session::get('locale'))
 
                 <div class="col-lg-6">
                     <div class="box wow fadeInRight">
-                        <div class="icon"><i class="fa fa-picture-o"></i></div>
+                        <div class="icon"><i class="fa fa-mobile"></i></div>
                         <h4 class="title"><a href="{{asset('homepage/')}}/">@lang('content.tab_2_title')</a></h4>
                         <p class="description">@lang('content.tab_2_content')</p>
                     </div>
@@ -73,7 +73,7 @@ app()->setLocale(Session::get('locale'))
 
                 <div class="col-lg-6">
                     <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                        <div class="icon"><i class="fa fa-shopping-cart"></i></div>
                         <h4 class="title"><a href="{{asset('homepage/')}}/">@lang('content.tab_3_title')</a></h4>
                         <p class="description">@lang('content.tab_3_content')</p>
                     </div>
@@ -81,7 +81,7 @@ app()->setLocale(Session::get('locale'))
 
                 <div class="col-lg-6">
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fa fa-map"></i></div>
+                        <div class="icon"><i class="fa fa-binoculars"></i></div>
                         <h4 class="title"><a href="{{asset('homepage/')}}/">@lang('content.tab_4_title')</a></h4>
                         <p class="description">@lang('content.tab_4_content')</p>
                     </div>
