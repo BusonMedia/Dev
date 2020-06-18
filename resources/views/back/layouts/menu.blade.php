@@ -30,6 +30,13 @@
 
 
 
+
+        <li class="nav-item">
+            <a class="nav-link" @if(Request::segment(2)=="language") style="color:white !important;" @endif  href="#" >
+                <i @if(Request::segment(2)=="contentmanangment") style="color:white !important;" @endif class="fas fa-fw fa-flag"></i>
+                <span>İçerik Yönetimi</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link @if(Request::segment(2)=="sayfalar") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                 <i class="fas fa-fw fa-signal"></i>
@@ -43,36 +50,22 @@
                 </div>
             </div>
         </li>
-      <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" @if(Request::segment(2)=="language") style="color:white !important;" @endif  href="#" >
-                <i @if(Request::segment(2)=="language") style="color:white !important;" @endif class="fas fa-fw fa-flag"></i>
-                <span>İçerik Yönetimi</span>
-            </a>
-        </li>
-
+        <!-- Nav Item - Utilities Collapse Menu -->
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link @if(Request::segment(2)=="makaleler") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-edit"></i>
-                <span>Makaleler</span>
+                <span>Blog-Makaleler</span>
             </a>
             <div id="collapseTwo" class="collapse @if(Request::segment(2)=="makaleler") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Makale İşlemleri:</h6>
                     <a class="collapse-item @if(Request::segment(2)=="makaleler" and !Request::segment(3)) active @endif" href="{{route('admin.makaleler.index')}}">Tüm Makaleler</a>
                     <a class="collapse-item @if(Request::segment(2)=="makaleler" and Request::segment(3)=="olustur") active @endif" href="{{route('admin.makaleler.create')}}">Makale Oluştur</a>
+                    <a class="collapse-item @if(Request::segment(2)=="kategoriler") active @endif" href="{{route('admin.category.index')}}">Blog - Kategoriler</a>
                 </div>
             </div>
         </li>
-
-        <li class="nav-item">
-        <a class="nav-link" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif  href="{{route('admin.category.index')}}" >
-          <i @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif class="fas fa-fw fa-list"></i>
-          <span>Blog - Kategoriler</span>
-        </a>
-      </li>
-
         <li class="nav-item">
             <a class="nav-link" @if(Request::segment(2)=="language") style="color:white !important;" @endif  href="{{route('admin.language.index')}}" >
                 <i @if(Request::segment(2)=="language") style="color:white !important;" @endif class="fas fa-fw fa-flag"></i>
@@ -84,6 +77,14 @@
             <a class="nav-link" @if(Request::segment(2)=="support") style="color:white !important;" @endif  href="{{route('admin.support.index')}}" >
                 <i @if(Request::segment(2)=="support") style="color:white !important;" @endif class="fas fa-fw fa-briefcase"></i>
                 <span>Iletisim/Destek</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" @if(Request::segment(2)=="sitesettings") style="color:white !important;" @endif  href="{{route('admin.support.index')}}" >
+                <i @if(Request::segment(2)=="sitesettings") style="color:white !important;" @endif class="fas fa-fw fa-cog"></i>
+                <span>Site Ayarlari</span>
             </a>
 
         </li>

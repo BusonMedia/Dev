@@ -50,7 +50,7 @@ $lang->languageDedect();
     <div class="container">
 
         <div id="logo" class="pull-left">
-            <h1><a href="{{asset('homepage/')}}/#body" class="scrollto">AYOS<span> YAZILIM</span></a></h1>
+            <h1><a href="{{asset('homepage/')}}/#body" class="scrollto">AYOS<span> MEDYA</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="{{asset('homepage/')}}/#body"><img src="{{asset('homepage/')}}/img/logo.png" alt="" title="" /></a>-->
         </div>
