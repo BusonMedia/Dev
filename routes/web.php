@@ -16,7 +16,8 @@ Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function(){
 });
 Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
   Route::get('panel','Back\Dashboard@index')->name('dashboard');
-  //MAKALE ROUTE'S
+
+    //MAKALE ROUTE'S
   Route::get('makaleler.silinenler','Back\ArticleController@trashed')->name('trashed.article');
   Route::resource('makaleler','Back\ArticleController');
   Route::get('/switch','Back\ArticleController@switch')->name('switch');
@@ -28,6 +29,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::resource('sayfalar','Back\PageController');
     Route::get('/switchpage','Back\PageController@switch')->name('switch.page');
     Route::get('/deletepage/{id}','Back\PageController@delete')->name('delete.page');
+
+
+    Route::resource('settings','Back\SettingsController');
+    Route::post('settings/update','Back\SettingsController@update')->name('settings.update');
 
 
     //Language ROUTE's

@@ -7,7 +7,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-text ">Blog Sitesi Admin</div>
+        <div class="sidebar-brand-text ">Admin Purple</div>
       </a>
 
       <!-- Divider -->
@@ -82,19 +82,12 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" @if(Request::segment(2)=="sitesettings") style="color:white !important;" @endif  href="{{route('admin.support.index')}}" >
-                <i @if(Request::segment(2)=="sitesettings") style="color:white !important;" @endif class="fas fa-fw fa-cog"></i>
+            <a class="nav-link" @if(Request::segment(2)=="settings") style="color:white !important;" @endif  href="{{route('admin.settings.index')}}" >
+                <i @if(Request::segment(2)=="settings") style="color:white !important;" @endif class="fas fa-fw fa-cog"></i>
                 <span>Site Ayarlari</span>
             </a>
 
         </li>
-
-
-
-
-
-
-
         <!-- Sidebar Toggler (Sidebar) -->
 
 
