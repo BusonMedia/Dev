@@ -15,12 +15,16 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Contact;
+use App\Models\Websettings;
 
 class Homepage extends Controller
 {
 
 
     public function __construct(){
+      $wSettings= Websettings::all();
+      if($wSettings[0]->status==0) {echo'Site Kullanima Kapali'; die;}
+      view()->share('settings',$wSettings[0]);
       view()->share('pages',Page::orderBy('order','ASC')->get());
       view()->share('categories',Category::inRandomOrder()->get());
       view()->share(app()->setLocale(Session::get('locale')));

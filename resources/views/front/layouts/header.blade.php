@@ -9,13 +9,13 @@ $lang->languageDedect();
 <html lang="tr">
 <head>
     <meta charset="utf-8">
-    <title>@yield('title')</title>
+    <title>{{$settings->title}} - @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="{{$settings->description}}" name="description">
 
     <!-- Favicons -->
-    <link href="{{asset('homepage/')}}/img/AYOS - WT.png" rel="icon">
+    <link href="{{asset($settings->icon)}}" rel="icon">
     <link href="{{asset('homepage/')}}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -68,6 +68,7 @@ $lang->languageDedect();
                     @endif
                 @endforeach
                 <a class="nav-link" href="{{route('contact')}}">İletişim</a>
+                @if($settings->blog_status==1) <a class="nav-link" href="{{route('blog')}}">Blog</a> @endif
                 @if(Session::get('locale')=='en')   <a class="nav-link" href="{{route('changeLanguage','tr')}}">TR</a> @else <a class="nav-link" href="{{route('changeLanguage','en')}}">EN</a> @endif
 
             </ul>
