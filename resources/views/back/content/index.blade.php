@@ -2,7 +2,11 @@
 @section('title','Tüm Makaleler')
 @section('content')
 <div class="card shadow mb-4">
+
   <div class="card-body">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Yeni Icerik Ekle
+      </button> <hr>
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
@@ -34,6 +38,41 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  method="post" action="{{route('admin.content.store')}}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" class="form-control" placeholder="Title" name="title" required>
+                    <hr>
+                    <input type="file" class="form-control" name="image" required >
+                    <hr>
+                    <label for="exampleFormControlSelect1"> Widget Seciniz</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="widget" required>
+
+                        @foreach($select as $widget)
+                        <option>{{$widget->widget_name}}</option>
+                        @endforeach
+                    </select>
+                    <br>
+                    <input type="submit" class="btn btn-primary btn-lg btn-block"  value="Save Changes" >
+                </form>
+                   </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 @endsection
 @section('css')
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -41,12 +80,8 @@
 @section('js')
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script>
-  $(function() {
-    $('.switch').change(function() {
-      id= $(this)[0].getAttribute('article-id');
-      statu=$(this).prop('checked');
-      $.get("{{route('admin.switch')}}", {id:id , statu:statu} , function(data, status){});
-      })
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
     })
 </script>
 @endsection
