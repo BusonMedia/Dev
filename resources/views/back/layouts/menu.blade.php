@@ -74,11 +74,17 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" @if(Request::segment(2)=="demand") style="color:white !important;" @endif  href="{{route('admin.demand.index')}}" >
+                <i @if(Request::segment(2)=="demand") style="color:white !important;" @endif class="fa fa-cloud"></i>
+                <span>Müşteri Talep</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" @if(Request::segment(2)=="support") style="color:white !important;" @endif  href="{{route('admin.support.index')}}" >
                 <i @if(Request::segment(2)=="support") style="color:white !important;" @endif class="fas fa-fw fa-briefcase"></i>
                 <span>Iletisim/Destek</span>
             </a>
-
         </li>
 
         <li class="nav-item">

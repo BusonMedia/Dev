@@ -50,6 +50,8 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     //Language ROUTE's
     Route::resource('support','Back\SupportController');
 
+    Route::resource('demand','Back\DemandController');
+
 
 
 
