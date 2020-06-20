@@ -38,6 +38,7 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::resource('content','Back\ContentController');
     Route::post('content/update','Back\ContentController@update')->name('content.update');
     Route::post('content/store','Back\ContentController@store')->name('content.store');
+    Route::get('/switchcontent','Back\ContentController@switch')->name('switch.content');
 
 
     //Language ROUTE's

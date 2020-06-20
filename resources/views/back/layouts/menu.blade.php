@@ -32,8 +32,8 @@
 
 
         <li class="nav-item">
-            <a class="nav-link" @if(Request::segment(2)=="language") style="color:white !important;" @endif  href="#" >
-                <i @if(Request::segment(2)=="contentmanangment") style="color:white !important;" @endif class="fas fa-fw fa-flag"></i>
+            <a class="nav-link" @if(Request::segment(2)=="content") style="color:white !important;" @endif  href="{{route('admin.content.index')}}" >
+                <i @if(Request::segment(2)=="content") style="color:white !important;" @endif class="fas fa-fw fa-flag"></i>
                 <span>İçerik Yönetimi</span>
             </a>
         </li>

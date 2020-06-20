@@ -27,7 +27,8 @@ class Homepage extends Controller
       if($wSettings[0]->status==0) {echo'Site Kullanima Kapali'; die;}
       view()->share('settings',$wSettings[0]);
       view()->share('pages',Page::orderBy('order','ASC')->get());
-      view()->share('widgetManangment',Imagemanangment::all());
+      view()->share('widgetManangment', Imagemanangment::where('widget_name','widget_portfolio')->where('status',1)->get());
+      view()->share('widgetManangment2', Imagemanangment::where('widget_name','widget_client')->where('status',1)->get());
       view()->share('categories',Category::inRandomOrder()->get());
       view()->share(app()->setLocale(Session::get('locale')));
     }

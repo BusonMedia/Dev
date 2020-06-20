@@ -4,6 +4,7 @@ namespace App\Http\Controllers\back;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use App\Models\Websettings;
 use Illuminate\Http\Request;
 use App\Models\Imagemanangment;
@@ -47,6 +48,11 @@ class ContentController extends Controller
         $settings->widget_name=$request->widget;
         $settings->save();
         return redirect()->route('admin.content.index')->with('success','Mesajınız İletildi');
+    }
+    public function switch(Request $request){
+        $page=Imagemanangment::findOrFail($request->id);
+        $page->status=$request->statu=="true" ? 1 : 0 ;
+        $page->save();
     }
 
 }

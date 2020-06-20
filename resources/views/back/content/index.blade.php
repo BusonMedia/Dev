@@ -1,5 +1,5 @@
 @extends('back.layouts.master');
-@section('title','Tüm Makaleler')
+@section('title','İçerik Yönetimi')
 @section('content')
 <div class="card shadow mb-4">
 
@@ -13,18 +13,21 @@
           <tr>
             <th>Fotoğraf</th>
             <th>Widget Name</th>
+            <th>İçerik Aktif</th>
             <th>Duzenle</th>
           </tr>
         </thead>
         <tbody>
           @Foreach($articles as $article)
-
-
           <tr>
             <td>
               <img src="{{asset($article->image_path)}}" class="img-thumbnail ruonded" width="200" />
             </td>
+
             <td>{{$article->widget_name}}</td>
+              <td>
+                  <input class="switch" page-id="{{$article->id}}" type="checkbox" data-on="Aktif" data-off="Pasif" data-onstyle="success" data-offstyle="danger" @if($article->status==1) checked @endif data-toggle="toggle">
+              </td>
               <td>   <form  method="post" action="{{route('admin.content.update')}}" enctype="multipart/form-data">  @csrf<input type="hidden" value="{{$article->id}}" name="id">  <input type="text" class="form-control" value="{{$article->title}}" name="title"><hr>    <input type="file" class="form-control" name="image"  >
               <hr>
                   <input type="submit" class="btn btn-info "> </form></td>
@@ -82,6 +85,15 @@
 <script>
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
+    })
+</script>
+<script>
+    $(function() {
+        $('.switch').change(function() {
+            id= $(this)[0].getAttribute('page-id');
+            statu=$(this).prop('checked');
+            $.get("{{route('admin.switch.content')}}", {id:id , statu:statu} , function(data, status){});
+        })
     })
 </script>
 @endsection
