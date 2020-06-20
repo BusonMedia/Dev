@@ -35,6 +35,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::post('settings/update','Back\SettingsController@update')->name('settings.update');
 
 
+    Route::resource('content','Back\ContentController');
+    Route::post('content/update','Back\ContentController@update')->name('content.update');
+
+
     //Language ROUTE's
     Route::resource('language','Back\MultilanguageController');
     Route::get('/switchpage','Back\PageController@switch')->name('switch.page');

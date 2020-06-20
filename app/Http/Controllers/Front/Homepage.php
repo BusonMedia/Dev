@@ -16,6 +16,7 @@ use App\Models\Category;
 use App\Models\Page;
 use App\Models\Contact;
 use App\Models\Websettings;
+use App\Models\Imagemanangment;
 
 class Homepage extends Controller
 {
@@ -26,6 +27,7 @@ class Homepage extends Controller
       if($wSettings[0]->status==0) {echo'Site Kullanima Kapali'; die;}
       view()->share('settings',$wSettings[0]);
       view()->share('pages',Page::orderBy('order','ASC')->get());
+      view()->share('widgetManangment',Imagemanangment::all());
       view()->share('categories',Category::inRandomOrder()->get());
       view()->share(app()->setLocale(Session::get('locale')));
     }

@@ -91,7 +91,6 @@ app()->setLocale(Session::get('locale'))
 
         </div>
     </section><!-- #services -->
-
     <section id="portfolio" class="wow fadeInUp">
         <div class="container">
             <div class="section-header">
@@ -103,100 +102,24 @@ app()->setLocale(Session::get('locale'))
         <div class="container-fluid">
             <div class="row no-gutters">
 
+                @foreach($widgetManangment as $image)
                 <div class="col-lg-3 col-md-4">
                     <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/1.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/1.jpg" alt="">
+                        <a href="{{asset($image->image_path)}}" class="portfolio-popup">
+                            <img src="{{asset($image->image_path)}}" alt="">
                             <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
+                                <div class="portfolio-info"><h2 class="wow fadeInUp">{{$image->title}}</h2></div>
                             </div>
                         </a>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/2.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/2.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/3.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/3.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href={{asset('homepage/')}}/"img/portfolio/4.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/4.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/5.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/5.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 5</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/6.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/6.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 6</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/7.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/7.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 7</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="portfolio-item wow fadeInUp">
-                        <a href="{{asset('homepage/')}}/img/portfolio/8.jpg" class="portfolio-popup">
-                            <img src="{{asset('homepage/')}}/img/portfolio/8.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 8</h2></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
             </div>
 
         </div>
     </section><!-- #portfolio -->
-
-
     <section id="clients" class="wow fadeInUp">
         <div class="container">
             <div class="section-header">
@@ -217,7 +140,6 @@ app()->setLocale(Session::get('locale'))
 
         </div>
     </section><!-- #clients -->
-
     <section id="call-to-action" class="wow fadeInUp">
         <div class="container">
             <div class="row">
