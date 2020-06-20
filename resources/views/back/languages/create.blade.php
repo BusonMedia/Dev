@@ -1,4 +1,4 @@
-@extends('back.layouts.master');
+@extends('back.layouts.master')
 @section('title','Multilanguage')
 @section('content')
 <div class="card shadow mb-4">

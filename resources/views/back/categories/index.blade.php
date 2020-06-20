@@ -1,4 +1,4 @@
-@extends('back.layouts.master');
+@extends('back.layouts.master')
 @section('title','Tüm Kategoriler')
 @section('content')
 <div class="row">
