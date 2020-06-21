@@ -34,6 +34,9 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::resource('settings','Back\SettingsController');
     Route::post('settings/update','Back\SettingsController@update')->name('settings.update');
 
+    Route::resource('profile','Back\ProfileController');
+    Route::post('profile/update','Back\ProfileController@update')->name('profile.update');
+
 
     Route::resource('content','Back\ContentController');
     Route::post('content/update','Back\ContentController@update')->name('content.update');
@@ -51,6 +54,9 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::resource('support','Back\SupportController');
 
     Route::resource('demand','Back\DemandController');
+
+    Route::resource('logs','Back\LogController');
+
 
 
 

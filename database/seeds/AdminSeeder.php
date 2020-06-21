@@ -12,10 +12,14 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('admins')->insert([
-     'name'=>'ahmetbaba',
-     'email'=>'ahmetbaba@gmail.com',
-     'password'=>bcrypt(123456),
-   ]);
+      $admins=['ahmetbayrakci','samedalp','oguzhankarakas','yunusahmetalp'];
+      $pass=['ahmetb@gmail.com','sameddalp@gmail.com','oguzhannk2531@gmail.com','yunusahmetalp@gmail.com'];
+      for($i=0;$i<4;$i++) {
+          DB::table('admins')->insert([
+              'name' => $admins[$i],
+              'email' => $pass[$i],
+              'password' => bcrypt(123456),
+          ]);
+      }
     }
 }

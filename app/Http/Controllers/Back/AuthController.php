@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Models\Userlogs;
+
 
 class AuthController extends Controller
 {
@@ -14,6 +17,11 @@ class AuthController extends Controller
     }
     public function loginPost(Request $request){
       if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+          Session::put('user',Auth::user()->name);
+          $user=new Userlogs();
+          $user->username=Auth::user()->name;
+          $user->last_activate=now();
+          $user->save();
         toastr()->success('Hoşgeldiniz '.Auth::user()->name);
         return redirect()->route('admin.dashboard');
       }
