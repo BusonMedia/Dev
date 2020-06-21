@@ -54,6 +54,8 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::resource('support','Back\SupportController');
 
     Route::resource('demand','Back\DemandController');
+    Route::get('/switchdemand','Back\DemandController@switch')->name('switch.demand');
+
 
     Route::resource('logs','Back\LogController');
 
