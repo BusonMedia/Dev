@@ -7,12 +7,13 @@ use App\Models\Contact;
 use App\Models\Page;
 use App\Models\Userdemands;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DemandController extends Controller
 {
     public function index()
     {
-        $contact=Userdemands::orderBy('created_at','desc')->get();
+        $contact=DB::table('userdemands')->paginate(10);
         return view('back.demand.index',compact('contact'));
     }
 

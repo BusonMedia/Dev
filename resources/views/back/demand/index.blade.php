@@ -2,7 +2,7 @@
 @section('title','Destek/Iletisim')
 @section('content')
 
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered"  width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Musteri Adi</th>
@@ -33,6 +33,9 @@
           @endforeach
         </tbody>
       </table>
+      <div class="float-center">
+          {{$contact->links()}}
+      </div>
 
 
 @endsection

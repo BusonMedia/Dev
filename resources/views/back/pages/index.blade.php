@@ -21,7 +21,7 @@
               <img src="{{asset($page->image)}}" class="img-thumbnail ruonded" width="200" />
             </td>
             <td>{{$page->title}}</td>
-            <td>{{$page->created_at->diffForHumans()}}</td>
+            <td>{{$page->created_at}}</td>
             <td>
               <input class="switch" page-id="{{$page->id}}" type="checkbox" data-on="Aktif" data-off="Pasif" data-onstyle="success" data-offstyle="danger" @if($page->status==1) checked @endif data-toggle="toggle">
             </td>
@@ -34,6 +34,9 @@
           @endforeach
         </tbody>
       </table>
+        <div class="float-center">
+            {{$pages->links()}}
+        </div>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@
           Yeni Icerik Ekle
       </button> <hr>
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered"  width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Fotoğraf</th>
@@ -37,8 +37,13 @@
 
         </tbody>
       </table>
+        <div class="float-center">
+            {{$articles->links()}}
+        </div>
     </div>
+
   </div>
+
 </div>
 
 

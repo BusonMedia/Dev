@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Page;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 
@@ -19,7 +20,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages=Page::orderBy('created_at','ASC')->get();
+        $pages=DB::table('pages')->paginate(5);
         return view('back.pages.index',compact('pages'));
     }
 
@@ -62,6 +63,9 @@ class PageController extends Controller
         toastr()->success('Başarılı', 'Sayfa Başarıyla Oluşturuldu.');
         return redirect()->route('admin.sayfalar.index');
     }
+
+
+
 
     /**
      * Display the specified resource.
