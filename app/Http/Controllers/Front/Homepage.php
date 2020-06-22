@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Userdemands;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
@@ -87,6 +88,29 @@ class Homepage extends Controller
       $contact->save();
       return redirect()->route('contact')->with('success','Mesajınız İletildi');
       }
+    public function demand (Request $request){
+
+        $rules=[
+            'name'=>'required|min:5',
+            'email'=>'required|email',
+            'topic'=>'required',
+            'message'=>'required|min:10'
+        ];
+        $validate=Validator::make($request->post(),$rules);
+
+        if($validate->fails()){
+            return redirect()->route('homepage')->withErrors($validate)->withInput();
+        }
+        $demand= new Userdemands;
+        $demand->name=$request->name;
+        $demand->email=$request->email;
+        $demand->phone=$request->phone;
+        $demand->product=$request->product;
+        $demand->message=$request->message;
+        $demand->status=0;
+        $demand->save();
+        return redirect()->route('homepage')->with('success','Mesajınız İletildi');
+    }
 
     public function setLanguageSession($locate)
     {

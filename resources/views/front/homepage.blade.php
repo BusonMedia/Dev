@@ -147,11 +147,11 @@ app()->setLocale(Session::get('locale'))
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 text-center text-lg-left">
-                    <h3 class="cta-title">Call To Action</h3>
-                    <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h3 class="cta-title">@lang('content.demad.title')</h3>
+                    <p class="cta-text"> @lang('content.demad.content')</p>
                 </div>
                 <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" data-toggle="modal" data-target="#exampleModal">Call To Action</a>
+                    <a class="cta-btn align-middle" data-toggle="modal" data-target="#exampleModal">@lang('content.demad.btn')</a>
                 </div>
             </div>
 
@@ -159,7 +159,11 @@ app()->setLocale(Session::get('locale'))
     </section><!-- #call-to-action -->
 
 </main>
-
+@if(session('success'))
+    <div class="alert alert-success">
+        {{session('success')}}
+    </div>
+@endif
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -170,17 +174,26 @@ app()->setLocale(Session::get('locale'))
                 </button>
             </div>
             <div class="modal-body">
-                <form  method="post" action="{{route('admin.content.store')}}" enctype="multipart/form-data">
+                <form  method="post" action="{{route('demand.post')}}" enctype="multipart/form-data">
                     @csrf
-                    <input type="text" class="form-control" placeholder="Title" name="title" required>
+                    <input type="text" class="form-control" placeholder="Ad Soyad" name="name" required>
                     <hr>
-                    <input type="file" class="form-control" name="image" required >
+                    <input type="tel" class="form-control" placeholder="Telefon Numarası" name="phone" required>
                     <hr>
-                    <label for="exampleFormControlSelect1"> Widget Seciniz</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="widget" required>
-
+                    <input type="email" class="form-control" placeholder="E mail" name="email" required >
+                    <hr>
+                    <label>Konu</label>
+                    <select class="form-control" name="product">
+                        <option @if(old('topic')=="Kurumsal Web Sitesi") selected @endif >Kurumsal Web Sitesi</option>
+                        <option @if(old('topic')=="E-Ticaret") selected @endif >E-Ticaret</option>
+                        <option @if(old('topic')=="Youtube Modulu") selected @endif >Youtube Modulu</option>
+                        <option @if(old('topic')=="Tanitim Web Sitesi") selected @endif >Tanitim Web Sitesi</option>
+                        <option @if(old('topic')=="Diğer") selected @endif >Diğer</option>
                     </select>
-                    <br>
+                    <hr>
+                    <label>Mesaj</label>
+                    <textarea rows="5"  name="message" class="form-control" placeholder="Mesajınız">{{old('message')}}</textarea>
+                    <br/>
                     <input type="submit" class="btn btn-primary btn-lg btn-block"  value="Save Changes" >
                 </form>
             </div>

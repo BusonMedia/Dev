@@ -13,7 +13,7 @@ class DemandController extends Controller
 {
     public function index()
     {
-        $contact=DB::table('userdemands')->paginate(10);
+        $contact=DB::table('userdemands')->orderBy('created_at','desc')->paginate(10);
         return view('back.demand.index',compact('contact'));
     }
 

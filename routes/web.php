@@ -87,6 +87,8 @@ Route::get('/iletisim','Front\Homepage@contact')->name('contact');
 Route::get('/blog','Front\Homepage@article')->name('blog');
 Route::get('/changeLanguage/{locate}','Front\Homepage@setLanguageSession')->name('changeLanguage');
 Route::post('/iletisim','Front\Homepage@contactpost')->name('contact.post');
+Route::post('demand','Front\Homepage@demand')->name('demand.post');
 Route::get('/kategori/{category}','Front\Homepage@category')->name('category');
 Route::get('/{category}/{slug}','Front\Homepage@single')->name('single');
 Route::get('/{sayfa}','Front\Homepage@page')->name('page');
+
