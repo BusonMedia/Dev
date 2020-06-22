@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title','Tüm Makaleler')
+@section('title','Language Duzenle')
 @section('content')
 <div class="card shadow mb-4">
   <div class="card-body">
