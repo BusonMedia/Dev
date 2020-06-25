@@ -4,7 +4,7 @@ namespace App\Plugins;
 use Illuminate\Support\Facades\Session;
 use App\Models\Sitehits;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use Request;
 
 class Tracker
 {
