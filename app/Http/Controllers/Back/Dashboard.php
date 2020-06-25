@@ -18,6 +18,7 @@ class Dashboard extends Controller
         $demandsGraph['add'] = Userdemands::whereProduct('Tanitim Web Sitesi')->count();
         $demandsGraph['youtube'] = Userdemands::whereProduct('Youtube Modulu')->count();
         $demandsGraph['total'] = Userdemands::all()->count();
+        $demandsGraph['totalHits'] = Sitehits::sum('hits');
         return view('back.dashboard',compact('hit'),compact('demandsGraph'));
     }
 
