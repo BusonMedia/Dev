@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sitehits;
 use App\Models\Userdemands;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ use Validator;
 
 // Models
 use App\Models\Article;
+use App\Plugins\Tracker;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Contact;
@@ -24,7 +26,9 @@ class Homepage extends Controller
 
 
     public function __construct(){
-      $wSettings= Websettings::all();
+
+
+        $wSettings= Websettings::all();
       if($wSettings[0]->status==0) {echo'Site Kullanima Kapali'; die;}
       view()->share('settings',$wSettings[0]);
       view()->share('pages',Page::orderBy('order','ASC')->get());
@@ -35,6 +39,7 @@ class Homepage extends Controller
     }
 
     public function index(){
+        Tracker::hit();
         app()->setLocale(Session::get('locale'));
         return view('front.homepage');
     }
