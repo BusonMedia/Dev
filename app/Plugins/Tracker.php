@@ -9,10 +9,6 @@ use Illuminate\Http\Request;
 class Tracker
 {
 
-    public static function getCurrentHit()
-    {
-        return Sitehits::latest('upload_time')->first();
-    }
     public static function hit() {
 
         if(!Session::get('ip_address'))
