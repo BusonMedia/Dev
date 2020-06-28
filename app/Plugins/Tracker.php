@@ -9,6 +9,8 @@ use Request;
 class Tracker
 {
 
+    protected $siteHits;
+
     public static function hit() {
 
         if(!Session::get('ip_address'))
@@ -20,6 +22,11 @@ class Tracker
             $siteHits->increment('hits');
             $siteHits->save();
         }
+
+        else
+            {
+                return;
+            }
 
     }
 

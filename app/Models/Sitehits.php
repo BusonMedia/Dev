@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sitehits extends Model
 {
-    //
+
+    protected $fillable = ['time'];
+
 }

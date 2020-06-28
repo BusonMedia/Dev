@@ -95,17 +95,7 @@ class Homepage extends Controller
       }
     public function demand (Request $request){
 
-        $rules=[
-            'name'=>'required|min:5',
-            'email'=>'required|email',
-            'topic'=>'required',
-            'message'=>'required|min:10'
-        ];
-        $validate=Validator::make($request->post(),$rules);
 
-        if($validate->fails()){
-            return redirect()->route('homepage')->withErrors($validate)->withInput();
-        }
         $demand= new Userdemands;
         $demand->name=$request->name;
         $demand->email=$request->email;
