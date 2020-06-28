@@ -25,7 +25,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Talepler</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{$demandsGraph['total']}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -34,6 +34,10 @@
                 </div>
               </div>
             </div>
+              <?
+
+
+              ?>
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
@@ -41,14 +45,14 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Günlük Bekleyen Talepler</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Cevap Bekleyen Talepler</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$demandsGraph['totalUnread']}} (% {{$demandsGraph['countPercerntUnread']}}) </div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{$demandsGraph['countPercerntUnread']}}%" aria-valuenow="{{$demandsGraph['countPercerntUnread']}}" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
@@ -129,19 +133,19 @@ $youtube= $demandsGraph['youtube']*$oran;
                   <h6 class="m-0 font-weight-bold text-primary">Talep İstatistikleri</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Kurumsal Web Sitesi Talep <span class="float-right">{{$cffical}}%</span></h4>
+                  <h4 class="small font-weight-bold">Kurumsal Web Sitesi Talep <span class="float-right">{{round ($cffical)}}%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{$cffical}}%" aria-valuenow="{{$commerce}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{$cffical}}%" aria-valuenow="{{$cffical}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">E-Ticaret  Talep <span class="float-right">{{$commerce}}%</span></h4>
+                  <h4 class="small font-weight-bold">E-Ticaret  Talep <span class="float-right">{{round($commerce)}}%</span></h4>
                   <div class="progress mb-4">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: {{$commerce}}%" aria-valuenow="{{$commerce}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Tanıtım Web Sitesi  Talep <span class="float-right">{{$add}}%</span></h4>
+                  <h4 class="small font-weight-bold">Tanıtım Web Sitesi  Talep <span class="float-right">{{round($add)}}%</span></h4>
                   <div class="progress mb-4">
                     <div class="progress-bar" role="progressbar" style="width: {{$add}}%" aria-valuenow="{{$add}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Youtube Modul Talep <span class="float-right">{{$youtube}}%</span></h4>
+                  <h4 class="small font-weight-bold">Youtube Modul Talep <span class="float-right">{{round($youtube)}}%</span></h4>
                   <div class="progress mb-4">
                     <div class="progress-bar bg-info" role="progressbar" style="width: {{$youtube}}%" aria-valuenow="{{$youtube}}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
